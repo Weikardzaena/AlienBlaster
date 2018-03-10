@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
+        // Handle super pressed:
+        if (Input.GetButtonDown("Super")) {
+            FireSuper();
+        }
+
         // Move:
         float horizDelta = Input.GetAxis("Horizontal") * Time.deltaTime * MaxSpeed;
         float vertDelta = Input.GetAxis("Vertical") * Time.deltaTime * MaxSpeed;
@@ -41,5 +46,10 @@ public class PlayerController : MonoBehaviour {
     private void Fire()
     {
         Debug.Log("Fire!");
+    }
+
+    private void FireSuper()
+    {
+        Debug.Log("Super!");
     }
 }
