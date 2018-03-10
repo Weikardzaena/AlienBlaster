@@ -13,9 +13,18 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetButtonDown("Fire1")) {
+            Fire();
+        }
+
         float horizDelta = Input.GetAxis("Horizontal") * Time.deltaTime * MaxSpeed;
         float vertDelta = Input.GetAxis("Vertical") * Time.deltaTime * MaxSpeed;
 
         transform.Translate(horizDelta, vertDelta, 0.0f);
 	}
+
+    private void Fire()
+    {
+        Debug.Log("Fire!");
+    }
 }
