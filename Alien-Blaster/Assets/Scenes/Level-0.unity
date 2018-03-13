@@ -779,6 +779,28 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90.00001
       objectReference: {fileID: 0}
+    - target: {fileID: 1100375716167836, guid: 48319b032cbcd7b4692e82360ef5b916, type: 2}
+      propertyPath: m_Name
+      value: Missile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48319b032cbcd7b4692e82360ef5b916, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2041436999 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1100375716167836, guid: 48319b032cbcd7b4692e82360ef5b916,
+    type: 2}
+  m_PrefabInternal: {fileID: 2041436998}
+--- !u!114 &2041437000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2041436999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d29bdf93d946c429a86afe34ffdadc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TurnSpeed: 0
+  mTarget: {fileID: 0}
