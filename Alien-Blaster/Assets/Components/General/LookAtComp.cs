@@ -18,7 +18,9 @@ public class LookAtComp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(mTarget.transform);
+        if (mTarget != null) {
+            transform.LookAt(mTarget.transform);
+        }
     }	
 
     public void SetTarget(GameObject newTarget)
