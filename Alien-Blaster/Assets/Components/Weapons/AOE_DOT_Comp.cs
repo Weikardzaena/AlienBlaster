@@ -8,65 +8,45 @@ public class AOE_DOT_Comp : MonoBehaviour
     public float DamagePeriod = 0.1f;
 
     private UInt32 mDamage;
+    private float mNextFireTime = 0.0f;
     private float mPeriod;
-    private HashSet<DOTSrcMgrComp> mTargets = new HashSet<DOTSrcMgrComp>();
+    private HashSet<DamageableComp> mTargets = new HashSet<DamageableComp>();
 
 	// Use this for initialization
 	void Start () {
-        ChangeDmgAndPeriod(Damage, DamagePeriod);
+        mDamage = Damage;
+        mPeriod = DamagePeriod;
 	}
+
+    void Update()
+    {
+        mNextFireTime -= Time.deltaTime;
+
+        if (mNextFireTime < 0.0f) {
+            mNextFireTime = mPeriod;
+
+            // Remove references to destroyed objects:
+            mTargets.RemoveWhere(x => x == null);
+
+            foreach (var target in mTargets) {
+                target.DealDamage(mDamage);
+            }
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        DOTSrcMgrComp otherDOTmgr = other.gameObject.GetComponent<DOTSrcMgrComp>();
-        if (otherDOTmgr) {
-            otherDOTmgr.AddDOTSource(mPeriod, mDamage, this);
-            mTargets.Add(otherDOTmgr);
+        DamageableComp otherDamageable = other.gameObject.GetComponent<DamageableComp>();
+        if (otherDamageable) {
+            mTargets.Add(otherDamageable);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        DOTSrcMgrComp otherDOTmgr = other.gameObject.GetComponent<DOTSrcMgrComp>();
-        if (otherDOTmgr) {
-            otherDOTmgr.RemoveDOTSource(this);
-            mTargets.Remove(otherDOTmgr);
-        }
-    }
-
-    void OnDestroy()
-    {
-        foreach (var target in mTargets) {
-            target.RemoveDOTSource(this);
-        }
-    }
-
-    public void ChangeDamage(UInt32 newDamage)
-    {
-        mDamage = newDamage;
-
-        UpdateAllTargets();
-    }
-
-    public void ChangePeriod(float newPeriod)
-    {
-        mPeriod = newPeriod;
-
-        UpdateAllTargets();
-    }
-
-    public void ChangeDmgAndPeriod(UInt32 newDamage, float newPeriod)
-    {
-        mDamage = newDamage;
-        mPeriod = newPeriod;
-
-        UpdateAllTargets();
-    }
-
-    private void UpdateAllTargets()
-    {
-        foreach (var dotComp in mTargets) {
-            dotComp.AddDOTSource(mPeriod, mDamage, this);
+        DamageableComp otherDamageable = other.gameObject.GetComponent<DamageableComp>();
+        if (otherDamageable) {
+            mTargets.Remove(otherDamageable);
         }
     }
 }
