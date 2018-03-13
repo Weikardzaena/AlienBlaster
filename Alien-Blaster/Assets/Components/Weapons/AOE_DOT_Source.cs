@@ -34,6 +34,13 @@ public class AOE_DOT_Source : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        foreach (var target in mTargets) {
+            target.RemoveDOTSource(this);
+        }
+    }
+
     public void ChangeDamage(UInt32 newDamage)
     {
         mDamage = newDamage;
