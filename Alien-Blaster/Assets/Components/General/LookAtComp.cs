@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LookAtComp : MonoBehaviour
 {
-    public float TurnSpeed;
+    public float TurnSpeed = 1.0f;
     public GameObject mTarget;
 
     private float mTurnSpeed;
@@ -19,7 +19,8 @@ public class LookAtComp : MonoBehaviour
     void Update()
     {
         if (mTarget != null) {
-            transform.LookAt(mTarget.transform);
+            var targetRot = Quaternion.LookRotation(mTarget.transform.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, mTurnSpeed * Time.deltaTime);
         }
     }	
 
