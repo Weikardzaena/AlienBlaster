@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AOE_DOT_Source : MonoBehaviour
+public class AOE_DOT_Comp : MonoBehaviour
 {
     public UInt32 Damage = 1;
     public float DamagePeriod = 0.1f;
