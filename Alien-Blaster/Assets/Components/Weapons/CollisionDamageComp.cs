@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class PointDamageComp : MonoBehaviour
+public class CollisionDamageComp : MonoBehaviour
 {
     public UInt32 DamageVal = 1;
 
