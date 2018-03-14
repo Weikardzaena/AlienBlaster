@@ -37,10 +37,10 @@ public class PlayerController : MonoBehaviour {
         }
 
         // Move:
-        float horizDelta = Input.GetAxis("Horizontal") * Time.deltaTime * MaxSpeed;
-        float vertDelta = Input.GetAxis("Vertical") * Time.deltaTime * MaxSpeed;
+        Vector3 forwardDelta = Input.GetAxis("Vertical") * Time.deltaTime * MaxSpeed * Vector3.forward;
+        Vector3 rightDelta = Input.GetAxis("Horizontal") * Time.deltaTime * MaxSpeed * Vector3.right;
 
-        transform.Translate(horizDelta, vertDelta, 0.0f);
+        transform.Translate(forwardDelta + rightDelta);
 	}
 
     private void Fire()
