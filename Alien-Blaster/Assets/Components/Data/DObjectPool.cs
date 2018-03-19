@@ -36,6 +36,7 @@ public class DObjectPool : MonoBehaviour
 
         if (ShouldExpand) {
             GameObject newObj = Instantiate(ObjectPrefab);
+            mObjectPool.Add(newObj);
             return newObj;
         }
 
