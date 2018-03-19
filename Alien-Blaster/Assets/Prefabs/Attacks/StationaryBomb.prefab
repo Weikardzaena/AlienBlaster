@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 135095206176219786}
   - component: {fileID: 23279174014930598}
   - component: {fileID: 114847508680327626}
-  - component: {fileID: 114109264346510652}
   - component: {fileID: 114329191510354818}
+  - component: {fileID: 114376334896032466}
   m_Layer: 0
   m_Name: StationaryBomb
   m_TagString: Untagged
@@ -86,17 +86,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1324714777224974}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114109264346510652
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1324714777224974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a50f7993236e9be41b9797e82031cf78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114329191510354818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,6 +99,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplosionArea: {fileID: 135095206176219786}
   Damage: 1
+--- !u!114 &114376334896032466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1324714777224974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a88d5ffc3600cf4994c49f892a63f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114847508680327626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,8 +136,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114109264346510652}
-        m_MethodName: DestroySelf
+      - m_Target: {fileID: 114376334896032466}
+        m_MethodName: Recycle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: TimerComp+TimerExpired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: BSingleFireTimer+TimerExpired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!135 &135095206176219786
 SphereCollider:
