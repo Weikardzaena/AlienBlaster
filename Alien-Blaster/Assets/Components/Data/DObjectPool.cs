@@ -18,8 +18,11 @@ public class DObjectPool : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        GameObject newObj;
         for (UInt16 i = 0; i < InitialQuantity; i++) {
-            mObjectPool.Add(Instantiate(ObjectPrefab));
+            newObj = Instantiate(ObjectPrefab);
+            newObj.SetActive(false);
+            mObjectPool.Add(newObj);
         }
     }
 
