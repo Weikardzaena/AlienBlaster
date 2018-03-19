@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BFollowTarget : MonoBehaviour
+public class BFollowTarget : MonoBehaviour, IResettable
 {
     [Tooltip("If enabled, the game object will turn at the specified rate.  Note that if the rate is too low, it could miss the target.")]
     public bool SmoothTurn = false;
@@ -30,4 +30,9 @@ public class BFollowTarget : MonoBehaviour
             transform.Translate(Vector3.forward * MoveSpeed * Time.deltaTime);
         }
     }	
+
+    public void Reset()
+    {
+        Target = null;
+    }
 }

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DHealth : MonoBehaviour
+public class DHealth : MonoBehaviour, IResettable
 {
     [Serializable]
     public class HealthChange : UnityEvent<UInt32>
@@ -21,8 +21,7 @@ public class DHealth : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        mCurHealth = StartHealth;
-        mStartHealth = StartHealth;
+        Reset();
 	}
 
     public UInt32 SubtractHealth(UInt32 value)
@@ -47,5 +46,11 @@ public class DHealth : MonoBehaviour
         OnHealthChange.Invoke(mCurHealth);
 
         return mCurHealth;
+    }
+
+    public void Reset()
+    {
+        mCurHealth = StartHealth;
+        mStartHealth = StartHealth;
     }
 }
