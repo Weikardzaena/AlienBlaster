@@ -156,7 +156,7 @@ MonoBehaviour:
   MaxSpeed: 10
   AutoFirePeriod: 0.25
   StartWeapons:
-  - {fileID: 1048083859216784, guid: f485cbdf264d99b468db14ffb003c2d2, type: 2}
+  - {fileID: 1812517444693366, guid: af9ebc54bcec6a7499823654c157e797, type: 2}
 --- !u!114 &114951552685666684
 MonoBehaviour:
   m_ObjectHideFlags: 1

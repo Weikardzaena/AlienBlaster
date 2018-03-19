@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4346447950002530}
   - component: {fileID: 114028941238741568}
   m_Layer: 0
-  m_Name: MovingBombObjectPool
-  m_TagString: Untagged
+  m_Name: TimedMovingBombObjectPool
+  m_TagString: TimedMovingBomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
