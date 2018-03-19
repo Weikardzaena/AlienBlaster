@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class ADamageable : MonoBehaviour
 {
-    private SHealth mHealthComp;
+    private DHealth mHealthComp;
     private ADestroyable mDestroyableComp;
 
     // Use this for initialization
     void Start()
     {
-        mHealthComp = GetComponent<SHealth>();
+        mHealthComp = GetComponent<DHealth>();
     }
 
     public void DealDamage(UInt32 damage)

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SHealth : MonoBehaviour
+public class DHealth : MonoBehaviour
 {
     [Serializable]
     public class HealthChange : UnityEvent<UInt32>
