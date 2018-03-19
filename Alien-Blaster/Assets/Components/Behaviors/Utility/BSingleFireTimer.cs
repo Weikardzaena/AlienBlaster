@@ -15,14 +15,15 @@ public class BSingleFireTimer : MonoBehaviour
 
     private float mTimeRemaining;
 
-	// Use this for initialization
-	void Start () {
-        mTimeRemaining = Duration;
-        IsFinished = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
+        Reset();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (!IsFinished) {
             mTimeRemaining -= Time.deltaTime;
 
@@ -31,5 +32,11 @@ public class BSingleFireTimer : MonoBehaviour
                 IsFinished = true;
             }
         }
-	}
+    }
+
+    public void Reset()
+    {
+        mTimeRemaining = Duration;
+        IsFinished = false;
+    }
 }

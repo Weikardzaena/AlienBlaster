@@ -13,7 +13,7 @@ public class DObjectPool : MonoBehaviour
     [Tooltip("Should this pool create new instances of the prefab if none are available?")]
     public bool ShouldExpand = true;
 
-    private List<GameObject> mObjectPool;
+    private List<GameObject> mObjectPool = new List<GameObject>();
 
     // Use this for initialization
     void Start()

@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 135756099796146488}
   - component: {fileID: 23145688256071878}
   - component: {fileID: 114910525964609798}
-  - component: {fileID: 114631979600147522}
   - component: {fileID: 114969917735541390}
   - component: {fileID: 114230234054724736}
+  - component: {fileID: 114111976008395874}
   m_Layer: 0
   m_Name: MovingBomb
   m_TagString: Untagged
@@ -87,6 +87,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1102550316693184}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114111976008395874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102550316693184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a88d5ffc3600cf4994c49f892a63f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114230234054724736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,17 +111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplosionArea: {fileID: 135756099796146488}
   Damage: 1
---- !u!114 &114631979600147522
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1102550316693184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a50f7993236e9be41b9797e82031cf78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114910525964609798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,17 +126,6 @@ MonoBehaviour:
   OnTimerExpired:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114631979600147522}
-        m_MethodName: DestroySelf
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 114230234054724736}
         m_MethodName: Detonate
         m_Mode: 1
@@ -148,7 +137,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: TimerComp+TimerExpired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      - m_Target: {fileID: 114111976008395874}
+        m_MethodName: Recycle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: BSingleFireTimer+TimerExpired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114969917735541390
 MonoBehaviour:
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
+  RelativeDirection: {x: 0, y: 0, z: 1}
 --- !u!135 &135756099796146488
 SphereCollider:
   m_ObjectHideFlags: 1
