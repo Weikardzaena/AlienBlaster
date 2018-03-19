@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class DestroyableComp : MonoBehaviour
+public class ADestroyable : MonoBehaviour
 {
     public void DestroySelf()
     {

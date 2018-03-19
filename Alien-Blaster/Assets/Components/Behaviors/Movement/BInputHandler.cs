@@ -1,19 +1,14 @@
 ﻿using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class BInputHandler : MonoBehaviour {
 
     public float MaxSpeed = 10.0f;
     public float AutoFirePeriod = 0.75f;
 
     private float mNextFireTime = 0.0f;
 
-	// Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-    void Update ()
+    // Update is called once per frame
+    void Update()
     {
         // Reset the fire time when the fire button is released:
         if (Input.GetButtonUp("Fire1")) {
@@ -41,7 +36,7 @@ public class PlayerController : MonoBehaviour {
         Vector3 rightDelta = Input.GetAxis("Horizontal") * Time.deltaTime * MaxSpeed * Vector3.right;
 
         transform.Translate(forwardDelta + rightDelta);
-	}
+    }
 
     private void Fire()
     {

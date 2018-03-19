@@ -1,9 +1,15 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class HealthComp : MonoBehaviour
+public class SHealth : MonoBehaviour
 {
+    [Serializable]
+    public class HealthChange : UnityEvent<UInt32>
+    { }
+
     public UInt32 StartHealth = 1;
+    public HealthChange OnHealthChange;
 
     // public accessors:
     public UInt32 StartingHealth { get { return mStartHealth; } }
@@ -24,6 +30,10 @@ public class HealthComp : MonoBehaviour
         Debug.Log(name + " SubtractHealth()");
         // Check for overflow before subtracting:
         mCurHealth = value > mCurHealth ? 0 : mCurHealth - value;
+
+        // Invoke listeners:
+        OnHealthChange.Invoke(mCurHealth);
+
         return mCurHealth;
     }
 
@@ -32,6 +42,10 @@ public class HealthComp : MonoBehaviour
         Debug.Log(name + " AddHealth()");
         // Check for overflow before adding:
         mCurHealth = UInt32.MaxValue - mCurHealth < value ? UInt32.MaxValue : mCurHealth + value;
+
+        // Invoke listeners:
+        OnHealthChange.Invoke(mCurHealth);
+
         return mCurHealth;
     }
 }
