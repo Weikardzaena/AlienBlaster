@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AOE_DOT_Comp : MonoBehaviour
+public class B_AOE_DOT : MonoBehaviour
 {
     public UInt32 Damage = 1;
     public float DamagePeriod = 0.1f;
@@ -12,11 +12,12 @@ public class AOE_DOT_Comp : MonoBehaviour
     private float mPeriod;
     private HashSet<ADamageable> mTargets = new HashSet<ADamageable>();
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         mDamage = Damage;
         mPeriod = DamagePeriod;
-	}
+    }
 
     void Update()
     {

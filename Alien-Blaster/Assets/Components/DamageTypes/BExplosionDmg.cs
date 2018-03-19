@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosionDmgComp : MonoBehaviour
+public class BExplosionDmg : MonoBehaviour
 {
     public SphereCollider ExplosionArea;
     public UInt32 Damage;

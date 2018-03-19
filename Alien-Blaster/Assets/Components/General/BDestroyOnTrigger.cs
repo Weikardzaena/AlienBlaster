@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 
-public class DestroyOnTriggerComp : MonoBehaviour
+public class BDestroyOnTrigger : MonoBehaviour
 {
-    private DestroyableComp mDestroyableComp;
+    private ADestroyable mDestroyableComp;
 
-	// Use this for initialization
-	void Start () {
-        mDestroyableComp = gameObject.GetComponent<DestroyableComp>();
-	}
+    // Use this for initialization
+    void Start()
+    {
+        mDestroyableComp = gameObject.GetComponent<ADestroyable>();
+    }
 	
     void OnTriggerEnter(Collider other)
     {

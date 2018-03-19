@@ -4,7 +4,7 @@ using UnityEngine;
 public class ADamageable : MonoBehaviour
 {
     private SHealth mHealthComp;
-    private DestroyableComp mDestroyableComp;
+    private ADestroyable mDestroyableComp;
 
     // Use this for initialization
     void Start()
