@@ -1,0 +1,47 @@
+===================
+
+Components
+
+===================
+
+    - Health
+    - Timer
+    - Transform
+    - Mesh
+    - Collider
+    - Velocity
+
+Health
+
+    Properties
+    - UInt32 HealthRemaining { get; private set; }
+    - UInt32 StartingHealth { get; }
+
+    Methods
+    - UInt32 AddHealth(UInt32 amount)
+        + Returns HealthRemaining
+    - UInt32 SubtractHealth(UInt32 amount)
+        + Returns HealthRemaining
+
+Timer
+
+    Properties
+    - float RemainingSeconds { get; private set; }
+    - float StartingSecodns { get; }
+
+    Methods
+    - void Start()
+    - void Pause()
+    - void Reset()
+
+===============
+
+Behaviors
+
+===============
+
+Behaviors act on Components
+Explicit coupling between a behavior and the components it manipulates
+    - E.G. a damageable behavior won't do anything if the Game Object has no Health Component.
+    - A behavior that moves a Game Object will act on the transform.
+    - etc.
