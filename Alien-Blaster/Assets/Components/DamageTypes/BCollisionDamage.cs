@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-public class CollisionDamageComp : MonoBehaviour
+public class BCollisionDamage : MonoBehaviour
 {
     public UInt32 DamageVal = 1;
 
     private UInt32 mDamage;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         mDamage = DamageVal;
-	}
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -20,9 +20,9 @@ public class CollisionDamageComp : MonoBehaviour
         // since we don't know what object we're going to hit ahead of time.  And since
         // we're not going to be calling this every frame, there's no performance issue
         // (not tested, but it makes sense to think that way).
-        var damageComp = other.gameObject.GetComponent<DamageableComp>();
+        var damageComp = other.gameObject.GetComponent<ADamageable>();
 
-        if (damageComp) {
+        if (damageComp != null) {
             damageComp.DealDamage(mDamage);
         }
     }

@@ -10,7 +10,7 @@ public class AOE_DOT_Comp : MonoBehaviour
     private UInt32 mDamage;
     private float mNextFireTime = 0.0f;
     private float mPeriod;
-    private HashSet<DamageableComp> mTargets = new HashSet<DamageableComp>();
+    private HashSet<ADamageable> mTargets = new HashSet<ADamageable>();
 
 	// Use this for initialization
 	void Start () {
@@ -36,7 +36,7 @@ public class AOE_DOT_Comp : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        DamageableComp otherDamageable = other.gameObject.GetComponent<DamageableComp>();
+        ADamageable otherDamageable = other.gameObject.GetComponent<ADamageable>();
         if (otherDamageable) {
             mTargets.Add(otherDamageable);
         }
@@ -44,7 +44,7 @@ public class AOE_DOT_Comp : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        DamageableComp otherDamageable = other.gameObject.GetComponent<DamageableComp>();
+        ADamageable otherDamageable = other.gameObject.GetComponent<ADamageable>();
         if (otherDamageable) {
             mTargets.Remove(otherDamageable);
         }

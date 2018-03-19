@@ -7,7 +7,7 @@ public class ExplosionDmgComp : MonoBehaviour
     public SphereCollider ExplosionArea;
     public UInt32 Damage;
 
-    private HashSet<DamageableComp> mTargets = new HashSet<DamageableComp>();
+    private HashSet<ADamageable> mTargets = new HashSet<ADamageable>();
 
     // Use this for initialization
     void Start()
@@ -18,7 +18,7 @@ public class ExplosionDmgComp : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        var damageComp = other.gameObject.GetComponent<DamageableComp>();
+        var damageComp = other.gameObject.GetComponent<ADamageable>();
         if (damageComp != null) {
             mTargets.Add(damageComp);
         }
@@ -26,7 +26,7 @@ public class ExplosionDmgComp : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        var damageComp = other.gameObject.GetComponent<DamageableComp>();
+        var damageComp = other.gameObject.GetComponent<ADamageable>();
         if (damageComp != null) {
             mTargets.Remove(damageComp);
         }
