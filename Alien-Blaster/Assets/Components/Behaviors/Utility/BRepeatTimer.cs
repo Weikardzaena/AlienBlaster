@@ -24,9 +24,9 @@ public class BRepeatTimer : MonoBehaviour, IResettable
     {
         mTimeRemaining -= Time.deltaTime;
         if (mTimeRemaining < 0.0f) {
-            Debug.Log(name + " timer fire!");
-            OnTimerFired.Invoke();
+            // Do cleanup first because Invoked methods might change the state.
             Reset();
+            OnTimerFired.Invoke();
         }
     }
 
