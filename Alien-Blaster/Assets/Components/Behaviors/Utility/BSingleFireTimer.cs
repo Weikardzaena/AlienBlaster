@@ -16,7 +16,7 @@ public class BSingleFireTimer : MonoBehaviour, IResettable
     private float mTimeRemaining;
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
         Reset();
     }

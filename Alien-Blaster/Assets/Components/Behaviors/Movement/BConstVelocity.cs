@@ -10,7 +10,7 @@ public class BConstVelocity : MonoBehaviour
     private Vector3 mNormalizedDir;
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
         mNormalizedDir = RelativeDirection.normalized;
     }

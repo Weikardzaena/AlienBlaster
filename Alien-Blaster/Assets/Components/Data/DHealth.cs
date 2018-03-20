@@ -18,11 +18,11 @@ public class DHealth : MonoBehaviour, IResettable
     private UInt32 mCurHealth;
     private UInt32 mStartHealth;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void OnEnable()
     {
         Reset();
-	}
+    }
 
     public UInt32 SubtractHealth(UInt32 value)
     {

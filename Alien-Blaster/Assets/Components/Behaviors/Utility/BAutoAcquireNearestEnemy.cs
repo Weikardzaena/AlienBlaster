@@ -7,7 +7,7 @@ public class BAutoAcquireNearestEnemy : MonoBehaviour, IResettable
     private bool mHasValidTarget = false;
 
     // Use this for initialization
-    void OnEnable()
+    void Start()
     {
         mHasValidTarget = AcquireNearestEnemy();
     }

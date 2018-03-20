@@ -7,7 +7,7 @@ public class ADamageable : MonoBehaviour
     private ADestroyable mDestroyableComp;
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
         mHealthComp = GetComponent<DHealth>();
     }

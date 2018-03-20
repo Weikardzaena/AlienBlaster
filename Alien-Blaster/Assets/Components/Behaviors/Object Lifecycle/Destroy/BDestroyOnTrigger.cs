@@ -5,9 +5,9 @@ public class BDestroyOnTrigger : MonoBehaviour
     private ADestroyable mDestroyableComp;
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
-        mDestroyableComp = gameObject.GetComponent<ADestroyable>();
+        mDestroyableComp = GetComponent<ADestroyable>();
     }
 	
     void OnTriggerEnter(Collider other)

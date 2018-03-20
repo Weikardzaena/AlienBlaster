@@ -4,7 +4,7 @@ public class BRecycleOnTrigger : MonoBehaviour
 {
     private ARecyclable mRecycleComp;
 
-    void Start()
+    void OnEnable()
     {
         mRecycleComp = GetComponent<ARecyclable>();
     }

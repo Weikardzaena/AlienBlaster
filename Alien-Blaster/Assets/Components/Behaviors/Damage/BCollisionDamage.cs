@@ -8,7 +8,7 @@ public class BCollisionDamage : MonoBehaviour
     private UInt32 mDamage;
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
         mDamage = DamageVal;
     }

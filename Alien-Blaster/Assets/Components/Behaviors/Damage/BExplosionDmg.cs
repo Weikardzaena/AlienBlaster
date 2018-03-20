@@ -10,7 +10,7 @@ public class BExplosionDmg : MonoBehaviour, IResettable
     private HashSet<ADamageable> mTargets = new HashSet<ADamageable>();
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
         Reset();
     }
