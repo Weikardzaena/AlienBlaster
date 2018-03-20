@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BFollowTarget : MonoBehaviour, IResettable
+public class BFollowTarget : MonoBehaviour
 {
     [Tooltip("If enabled, the game object will turn at the specified rate.  Note that if the rate is too low, it could miss the target.")]
     public bool SmoothTurn = false;
@@ -12,27 +12,22 @@ public class BFollowTarget : MonoBehaviour, IResettable
     public float MoveSpeed = 1.0f;
 
     [Tooltip("The game object to look at.")]
-    public GameObject Target;
+    public DTarget TargetData;
 
     // Update is called once per frame
     void Update()
     {
-        if (Target != null) {
+        if (TargetData && TargetData.Target) {
             // Look at target:
             if (SmoothTurn) {
-                var targetRot = Quaternion.LookRotation(Target.transform.position - transform.position);
+                var targetRot = Quaternion.LookRotation(TargetData.Target.transform.position - transform.position);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, TurnSpeed * Time.deltaTime);
             } else {
-                transform.LookAt(Target.transform);
+                transform.LookAt(TargetData.Target.transform);
             }
-
-            // Move forward:
-            transform.Translate(Vector3.forward * MoveSpeed * Time.deltaTime);
         }
-    }	
 
-    public void Reset()
-    {
-        Target = null;
+        // Move forward:
+        transform.Translate(Vector3.forward * MoveSpeed * Time.deltaTime);
     }
 }

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BSingleFireTimer : MonoBehaviour
+public class BSingleFireTimer : MonoBehaviour, IResettable
 {
     [Serializable]
     public class TimerExpired : UnityEvent
@@ -28,8 +28,9 @@ public class BSingleFireTimer : MonoBehaviour
             mTimeRemaining -= Time.deltaTime;
 
             if (mTimeRemaining < 0.0f) {
-                OnTimerExpired.Invoke();
+                // Make sure to set IsFinished first because Reset is called via Recyclable later on.
                 IsFinished = true;
+                OnTimerExpired.Invoke();
             }
         }
     }

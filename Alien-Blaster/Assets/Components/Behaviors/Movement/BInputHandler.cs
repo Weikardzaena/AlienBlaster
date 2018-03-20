@@ -1,11 +1,25 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class BInputHandler : MonoBehaviour {
 
     public float MaxSpeed = 10.0f;
     public float AutoFirePeriod = 0.75f;
+    public GameObject[] StartWeapons;
 
     private float mNextFireTime = 0.0f;
+    private List<AFirable> mWeapons = new List<AFirable>();
+
+    void Start()
+    {
+        foreach (var weapon in StartWeapons) {
+            var instance = Instantiate(weapon, transform);
+            var firable = instance.GetComponent<AFirable>();
+            if (firable) {
+                mWeapons.Add(firable);
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -38,9 +52,18 @@ public class BInputHandler : MonoBehaviour {
         transform.Translate(forwardDelta + rightDelta);
     }
 
+    public void AddWeapon(AFirable weapon)
+    {
+        if (weapon) {
+            mWeapons.Add(weapon);
+        }
+    }
+
     private void Fire()
     {
-        Debug.Log("Fire!");
+        foreach (var weapon in mWeapons) {
+            weapon.Fire();
+        }
     }
 
     private void FireSuper()
