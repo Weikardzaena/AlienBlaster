@@ -3,22 +3,15 @@ using UnityEngine;
 
 public class ADamageable : MonoBehaviour
 {
-    private DHealth mHealthComp;
-    private ADestroyable mDestroyableComp;
-
-    // Use this for initialization
-    void OnEnable()
-    {
-        mHealthComp = GetComponent<DHealth>();
-    }
+    public DHealth HealthComp;
 
     public void DealDamage(UInt32 damage)
     {
         Debug.Log(name + " DealDamage()");
 
         // If we have a health component, subtract the damage from the health:
-        if (mHealthComp != null) {
-            mHealthComp.SubtractHealth(damage);
+        if (HealthComp) {
+            HealthComp.SubtractHealth(damage);
         }
     }
 }

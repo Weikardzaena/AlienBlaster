@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114657915717508994}
   - component: {fileID: 114736818216612438}
   - component: {fileID: 114734810772668826}
+  - component: {fileID: 114344753352469172}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -89,6 +90,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1261549873999862}
   m_Mesh: {fileID: 4300000, guid: 495bc227d7d7f414a8a0237aa70d48e1, type: 3}
+--- !u!114 &114344753352469172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261549873999862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7913dc45b278f4ea92dde6769866d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 3
+  OnTimerExpired:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114559464927481886}
+        m_MethodName: Recycle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: BSingleFireTimer+TimerExpired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114401993302948878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmoothTurn: 0
   TurnSpeed: 1
-  MoveSpeed: 1
+  MoveSpeed: 5
   TargetData: {fileID: 114734810772668826}
 --- !u!114 &114559464927481886
 MonoBehaviour:
@@ -115,6 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a88d5ffc3600cf4994c49f892a63f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResettableComponents:
+  - {fileID: 114736818216612438}
+  - {fileID: 114734810772668826}
+  - {fileID: 114344753352469172}
 --- !u!114 &114657915717508994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752d4a64b3882bc4e85c18b838e50ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RecycleComp: {fileID: 114559464927481886}
 --- !u!114 &114734810772668826
 MonoBehaviour:
   m_ObjectHideFlags: 1

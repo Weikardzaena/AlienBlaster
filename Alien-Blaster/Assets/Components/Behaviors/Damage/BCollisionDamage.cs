@@ -5,14 +5,6 @@ public class BCollisionDamage : MonoBehaviour
 {
     public UInt32 DamageVal = 1;
 
-    private UInt32 mDamage;
-
-    // Use this for initialization
-    void OnEnable()
-    {
-        mDamage = DamageVal;
-    }
-
     public void OnTriggerEnter(Collider other)
     {
         // There's no way of getting around checking for the Damageable Component at hit
@@ -22,7 +14,7 @@ public class BCollisionDamage : MonoBehaviour
         var damageComp = other.gameObject.GetComponent<ADamageable>();
 
         if (damageComp != null) {
-            damageComp.DealDamage(mDamage);
+            damageComp.DealDamage(DamageVal);
         }
     }
 }

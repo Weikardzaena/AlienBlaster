@@ -110,6 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a88d5ffc3600cf4994c49f892a63f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResettableComponents:
+  - {fileID: 114329191510354818}
+  - {fileID: 114847508680327626}
 --- !u!114 &114847508680327626
 MonoBehaviour:
   m_ObjectHideFlags: 1

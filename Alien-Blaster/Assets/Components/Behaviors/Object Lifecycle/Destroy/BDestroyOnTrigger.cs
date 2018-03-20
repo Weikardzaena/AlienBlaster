@@ -2,20 +2,14 @@
 
 public class BDestroyOnTrigger : MonoBehaviour
 {
-    private ADestroyable mDestroyableComp;
+    public ADestroyable DestroyableComp;
 
-    // Use this for initialization
-    void OnEnable()
-    {
-        mDestroyableComp = GetComponent<ADestroyable>();
-    }
-	
     void OnTriggerEnter(Collider other)
     {
         Debug.Log(name + "DestroyOnTriggerComp::OnTriggerEnter()");
 
-        if (mDestroyableComp) {
-            mDestroyableComp.DestroySelf();
+        if (DestroyableComp) {
+            DestroyableComp.DestroySelf();
         } else {
             Destroy(gameObject);
         }

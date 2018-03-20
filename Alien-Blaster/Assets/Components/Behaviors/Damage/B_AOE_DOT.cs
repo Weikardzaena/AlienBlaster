@@ -26,6 +26,7 @@ public class B_AOE_DOT : MonoBehaviour, IResettable
             mNextFireTime = mPeriod;
 
             // Remove references to destroyed objects:
+            // TODO:  IS this even necessary??
             mTargets.RemoveWhere(x => x == null);
 
             foreach (var target in mTargets) {

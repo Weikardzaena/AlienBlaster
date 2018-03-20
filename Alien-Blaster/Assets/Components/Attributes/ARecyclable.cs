@@ -2,18 +2,15 @@
 
 public class ARecyclable : MonoBehaviour
 {
-    private IResettable[] mComponents;
-
-    // Use this for initialization
-    void OnEnable()
-    {
-        mComponents = GetComponents<IResettable>();
-    }
+    public Component[] ResettableComponents;
 
     public void Recycle()
     {
-        foreach (IResettable comp in mComponents) {
-            comp.Reset();
+        foreach (var comp in ResettableComponents) {
+            var resettable = comp as IResettable;
+
+            if (resettable != null)
+                resettable.Reset();
         }
 
         gameObject.SetActive(false);
