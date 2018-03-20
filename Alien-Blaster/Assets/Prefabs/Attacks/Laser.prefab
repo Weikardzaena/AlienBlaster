@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752d4a64b3882bc4e85c18b838e50ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RecycleComp: {fileID: 114888524213000554}
 --- !u!114 &114621076663938570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,6 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a88d5ffc3600cf4994c49f892a63f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResettableComponents:
+  - {fileID: 114621076663938570}
 --- !u!136 &136958388450186046
 CapsuleCollider:
   m_ObjectHideFlags: 1

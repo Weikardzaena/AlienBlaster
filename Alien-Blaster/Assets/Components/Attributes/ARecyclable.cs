@@ -2,17 +2,11 @@
 
 public class ARecyclable : MonoBehaviour
 {
-    private IResettable[] mComponents;
-
-    // Use this for initialization
-    void OnEnable()
-    {
-        mComponents = GetComponents<IResettable>();
-    }
+    public Component[] ResettableComponents;
 
     public void Recycle()
     {
-        foreach (IResettable comp in mComponents) {
+        foreach (IResettable comp in ResettableComponents) {
             comp.Reset();
         }
 
