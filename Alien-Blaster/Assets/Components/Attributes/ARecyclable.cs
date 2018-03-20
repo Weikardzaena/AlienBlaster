@@ -6,8 +6,11 @@ public class ARecyclable : MonoBehaviour
 
     public void Recycle()
     {
-        foreach (IResettable comp in ResettableComponents) {
-            comp.Reset();
+        foreach (var comp in ResettableComponents) {
+            var resettable = comp as IResettable;
+
+            if (resettable != null)
+                resettable.Reset();
         }
 
         gameObject.SetActive(false);
