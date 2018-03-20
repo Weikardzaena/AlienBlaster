@@ -5,7 +5,7 @@ public class ARecyclable : MonoBehaviour
     private IResettable[] mComponents;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         mComponents = GetComponents<IResettable>();
     }

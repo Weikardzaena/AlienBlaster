@@ -19,9 +19,17 @@ public class DObjectPool : MonoBehaviour
     void Start()
     {
         GameObject newObj;
+        ARecyclable recycleComp;
         for (UInt16 i = 0; i < InitialQuantity; i++) {
             newObj = Instantiate(ObjectPrefab);
-            newObj.SetActive(false);
+            recycleComp = newObj.GetComponent<ARecyclable>();
+
+            if (recycleComp) {
+                recycleComp.Recycle();
+            } else {
+                newObj.SetActive(false);
+            }
+
             mObjectPool.Add(newObj);
         }
     }
