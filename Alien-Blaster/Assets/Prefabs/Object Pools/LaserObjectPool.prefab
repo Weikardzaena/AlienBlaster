@@ -55,3 +55,4 @@ MonoBehaviour:
     type: 2}
   InitialQuantity: 50
   ShouldExpand: 1
+  FirableType: {fileID: 11400000, guid: ab958a0f4f956ab48a2c359351aa4723, type: 2}

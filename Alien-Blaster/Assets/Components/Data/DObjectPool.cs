@@ -13,6 +13,8 @@ public class DObjectPool : MonoBehaviour
     [Tooltip("Should this pool create new instances of the prefab if none are available?")]
     public bool ShouldExpand = true;
 
+    public FirableType FirableType;
+
     private List<GameObject> mObjectPool = new List<GameObject>();
 
     // Use this for initialization

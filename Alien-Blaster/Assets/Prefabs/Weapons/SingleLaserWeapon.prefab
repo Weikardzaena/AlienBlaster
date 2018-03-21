@@ -82,3 +82,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPoints:
   - {fileID: 4931084663244570}
+  FirableType: {fileID: 11400000, guid: ab958a0f4f956ab48a2c359351aa4723, type: 2}
