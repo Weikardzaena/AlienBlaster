@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114836756928445870}
   m_Layer: 0
   m_Name: SingleMissileWeapon
-  m_TagString: Missile
+  m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,3 +82,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPoints:
   - {fileID: 4095675617431246}
+  FirableType: {fileID: 11400000, guid: 2bfb6f2f4dba7114d854d2a711db216b, type: 2}

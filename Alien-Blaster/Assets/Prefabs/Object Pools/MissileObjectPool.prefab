@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114219238856468590}
   m_Layer: 0
   m_Name: MissileObjectPool
-  m_TagString: Missile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,3 +55,4 @@ MonoBehaviour:
     type: 2}
   InitialQuantity: 25
   ShouldExpand: 1
+  FirableType: {fileID: 11400000, guid: 2bfb6f2f4dba7114d854d2a711db216b, type: 2}

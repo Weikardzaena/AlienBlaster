@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114028941238741568}
   m_Layer: 0
   m_Name: TimedMovingBombObjectPool
-  m_TagString: TimedMovingBomb
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,3 +55,4 @@ MonoBehaviour:
     type: 2}
   InitialQuantity: 10
   ShouldExpand: 1
+  FirableType: {fileID: 11400000, guid: afddfbc0ca790a942b154ac7e9b17b69, type: 2}

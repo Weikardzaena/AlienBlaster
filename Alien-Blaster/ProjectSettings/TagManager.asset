@@ -3,10 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Laser
-  - TimedMovingBomb
-  - Missile
+  tags: []
   layers:
   - Default
   - TransparentFX

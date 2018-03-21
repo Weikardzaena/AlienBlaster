@@ -3,15 +3,16 @@
 public class AFirable : MonoBehaviour
 {
     public Transform[] SpawnPoints;
+    public FirableType FirableType;
 
     private DObjectPool mObjPool;
 
     // Use this for initialization
     void Start()
     {
-        var objPool = GameObject.FindGameObjectWithTag(tag);
-        if (objPool) {
-            mObjPool = objPool.GetComponent<DObjectPool>();
+        var objPoolMgr = FindObjectOfType<ObjectPoolMgr>();
+        if (objPoolMgr) {
+            mObjPool = objPoolMgr.GetObjectPool(FirableType);
         }
     }
 

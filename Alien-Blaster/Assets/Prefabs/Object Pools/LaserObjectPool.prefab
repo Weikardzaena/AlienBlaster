@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114386411085660816}
   m_Layer: 0
   m_Name: LaserObjectPool
-  m_TagString: Laser
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,3 +55,4 @@ MonoBehaviour:
     type: 2}
   InitialQuantity: 50
   ShouldExpand: 1
+  FirableType: {fileID: 11400000, guid: ab958a0f4f956ab48a2c359351aa4723, type: 2}
