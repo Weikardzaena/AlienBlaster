@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DObjectPool : MonoBehaviour
+public class DObjectPool : MonoBehaviour, IResettable
 {
     [Tooltip("The prefab of the object that this pool will contain.")]
     public GameObject ObjectPrefab;
@@ -15,25 +15,12 @@ public class DObjectPool : MonoBehaviour
 
     public FirableType FirableType;
 
-    private List<GameObject> mObjectPool = new List<GameObject>();
+    private List<GameObject> mObjectPool;
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
-        GameObject newObj;
-        ARecyclable recycleComp;
-        for (UInt16 i = 0; i < InitialQuantity; i++) {
-            newObj = Instantiate(ObjectPrefab);
-            recycleComp = newObj.GetComponent<ARecyclable>();
-
-            if (recycleComp) {
-                recycleComp.Recycle();
-            } else {
-                newObj.SetActive(false);
-            }
-
-            mObjectPool.Add(newObj);
-        }
+        Reset();
     }
 
     public GameObject GetObject()
@@ -51,5 +38,25 @@ public class DObjectPool : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void Reset()
+    {
+        mObjectPool = new List<GameObject>();
+        GameObject newObj;
+        ARecyclable recycleComp;
+
+        for (UInt16 i = 0; i < InitialQuantity; i++) {
+            newObj = Instantiate(ObjectPrefab);
+            recycleComp = newObj.GetComponent<ARecyclable>();
+
+            if (recycleComp) {
+                recycleComp.Recycle();
+            } else {
+                newObj.SetActive(false);
+            }
+
+            mObjectPool.Add(newObj);
+        }
     }
 }
