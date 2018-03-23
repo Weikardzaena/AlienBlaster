@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class ObjectPoolMgr : MonoBehaviour
 {
-    public List<DObjectPool> ObjectPools;
+    public List<DObjectPool> ObjectPoolPrefabs;
 
+    private List<DObjectPool> mObjectPools;
+    private void OnEnable()
+    {
+        mObjectPools = new List<DObjectPool>();
+        foreach (var objPool in ObjectPoolPrefabs) {
+            if (objPool) {
+                mObjectPools.Add(Instantiate(objPool));
+            }
+        }
+    }
     public DObjectPool GetObjectPool(FirableType firableType)
     {
-        if (ObjectPools != null) {
-            return ObjectPools.FirstOrDefault(x => (x != null) &&
-                                                   (firableType == x.FirableType));
-        }
-
-        return null;
+        return mObjectPools.FirstOrDefault(x => (x != null) &&
+                                                (firableType == x.FirableType));
     }
 }

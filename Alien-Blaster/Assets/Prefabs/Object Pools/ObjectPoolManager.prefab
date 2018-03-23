@@ -20,9 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4624155550202092}
   - component: {fileID: 114869959551976488}
-  - component: {fileID: 114875288966604894}
-  - component: {fileID: 114299831658772102}
-  - component: {fileID: 114123907301485132}
   m_Layer: 0
   m_Name: ObjectPoolManager
   m_TagString: Untagged
@@ -43,38 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114123907301485132
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1060437517919272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bf8cd6b57193e24d8aeb5697cafead7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectPrefab: {fileID: 1102550316693184, guid: da7c720866c48e543a9fdab41123595a,
-    type: 2}
-  InitialQuantity: 10
-  ShouldExpand: 1
-  FirableType: {fileID: 11400000, guid: afddfbc0ca790a942b154ac7e9b17b69, type: 2}
---- !u!114 &114299831658772102
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1060437517919272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bf8cd6b57193e24d8aeb5697cafead7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectPrefab: {fileID: 1261549873999862, guid: 7c97062def163b849b9f4a0aa6063324,
-    type: 2}
-  InitialQuantity: 30
-  ShouldExpand: 1
-  FirableType: {fileID: 11400000, guid: 2bfb6f2f4dba7114d854d2a711db216b, type: 2}
 --- !u!114 &114869959551976488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,23 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc9cddbb01f2e54981fc59681d69f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectPools:
-  - {fileID: 114875288966604894}
-  - {fileID: 114299831658772102}
-  - {fileID: 114123907301485132}
---- !u!114 &114875288966604894
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1060437517919272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bf8cd6b57193e24d8aeb5697cafead7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectPrefab: {fileID: 1100375716167836, guid: 48319b032cbcd7b4692e82360ef5b916,
-    type: 2}
-  InitialQuantity: 30
-  ShouldExpand: 1
-  FirableType: {fileID: 11400000, guid: ab958a0f4f956ab48a2c359351aa4723, type: 2}
+  ObjectPoolPrefabs:
+  - {fileID: 114028941238741568, guid: 23365429cea236240bc0bb22785f0351, type: 2}
+  - {fileID: 114219238856468590, guid: 7d77330de1f26a34b892e79086aba47f, type: 2}
+  - {fileID: 114386411085660816, guid: 97e420c191efbe949abf75f767d144a1, type: 2}
