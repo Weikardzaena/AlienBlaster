@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BAutoAcquireNearestEnemy : MonoBehaviour, IResettable
+public class BAutoAcquireNearestEnemy : MonoBehaviour
 {
     public DTarget TargetData;
 
@@ -60,10 +60,5 @@ public class BAutoAcquireNearestEnemy : MonoBehaviour, IResettable
 
         // No Target was stored.  Return false.
         return false;
-    }
-
-    public void Reset()
-    {
-        mHasValidTarget = false;
     }
 }

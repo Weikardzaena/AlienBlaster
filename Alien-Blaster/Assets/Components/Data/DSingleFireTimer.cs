@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BSingleFireTimer : MonoBehaviour, IResettable
+public class DSingleFireTimer : MonoBehaviour, IResettable
 {
     [Serializable]
     public class TimerExpired : UnityEvent

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BRepeatTimer : MonoBehaviour, IResettable
+public class DRepeatTimer : MonoBehaviour, IResettable
 {
     [Serializable]
     public class TimerFired : UnityEvent

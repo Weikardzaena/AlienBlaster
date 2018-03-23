@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BExplosionDmg : MonoBehaviour, IResettable
+public class BExplosionDmg : MonoBehaviour
 {
     public SphereCollider ExplosionArea;
     public UInt32 Damage;
@@ -12,7 +12,10 @@ public class BExplosionDmg : MonoBehaviour, IResettable
     // Use this for initialization
     void OnEnable()
     {
-        Reset();
+        // Override trigger to ensure there's no actual collision that occurs for rigid bodies:
+        ExplosionArea.isTrigger = true;
+
+        mTargets.Clear();
     }
 
     void OnTriggerEnter(Collider other)
@@ -38,13 +41,5 @@ public class BExplosionDmg : MonoBehaviour, IResettable
                 target.DealDamage(Damage);
             }
         }
-    }
-
-    public void Reset()
-    {
-        // Override trigger to ensure there's no actual collision that occurs for rigid bodies:
-        ExplosionArea.isTrigger = true;
-
-        mTargets.Clear();
     }
 }

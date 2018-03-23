@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class B_AOE_DOT : MonoBehaviour, IResettable
+public class B_AOE_DOT : MonoBehaviour
 {
     public UInt32 Damage = 1;
     public float DamagePeriod = 0.1f;
@@ -15,7 +15,10 @@ public class B_AOE_DOT : MonoBehaviour, IResettable
     // Use this for initialization
     void OnEnable()
     {
-        Reset();
+        mDamage = Damage;
+        mPeriod = DamagePeriod;
+        mTargets.Clear();
+        mNextFireTime = 0.0f;
     }
 
     void Update()
@@ -49,13 +52,5 @@ public class B_AOE_DOT : MonoBehaviour, IResettable
         if (otherDamageable) {
             mTargets.Remove(otherDamageable);
         }
-    }
-
-    public void Reset()
-    {
-        mDamage = Damage;
-        mPeriod = DamagePeriod;
-        mTargets.Clear();
-        mNextFireTime = 0.0f;
     }
 }
