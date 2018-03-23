@@ -1,11 +1,18 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BKillOnZeroHealth : MonoBehaviour
 {
     public ADestroyable DestroyableComp;
+    public DHealth HealthComp;
 
-    public void HandleHealthChange(UInt32 newHealth)
+    private void OnEnable()
+    {
+        if (HealthComp) {
+            HealthComp.OnHealthChange.AddListener(HandleHealthChange);
+        }
+    }
+
+    private void HandleHealthChange(uint newHealth)
     {
         if (newHealth == 0) {
             if (DestroyableComp) {
