@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BAutoAcquireNearestEnemy : MonoBehaviour
+public class AAutoAcquiresNearestEnemy : MonoBehaviour
 {
     public DTarget TargetData;
 

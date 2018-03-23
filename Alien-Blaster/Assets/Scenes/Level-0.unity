@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyableComp: {fileID: 569610016}
+  HealthComp: {fileID: 0}
 --- !u!114 &569610008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +321,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: BRepeatTimer+TimerFired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: DRepeatTimer+TimerFired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!1 &728280539
 GameObject:
