@@ -2,25 +2,26 @@
 
 public class AMultipleTargets : MonoBehaviour
 {
-    private DTargetList mTargetList;
+    public DTargetList TargetList;
 
     private void OnEnable()
     {
-        mTargetList = GetComponent<DTargetList>();
+        if (!TargetList)
+            TargetList = GetComponent<DTargetList>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(name + " OnTriggerEnter()");
-        if (mTargetList) {
-            mTargetList.AddTarget(other.gameObject);
+        if (TargetList) {
+            TargetList.AddTarget(other.gameObject);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (mTargetList) {
-            mTargetList.RemoveTarget(other.gameObject);
+        if (TargetList) {
+            TargetList.RemoveTarget(other.gameObject);
         }
     }
 }

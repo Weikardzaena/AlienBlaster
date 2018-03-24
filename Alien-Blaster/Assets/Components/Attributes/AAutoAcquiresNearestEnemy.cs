@@ -2,13 +2,16 @@
 
 public class AAutoAcquiresNearestEnemy : MonoBehaviour
 {
+    public DTarget TargetData;
+
     private bool mHasValidTarget = false;
-    private DTarget mTargetData;
 
     // Use this for initialization
     void OnEnable()
     {
-        mTargetData = GetComponent<DTarget>();
+        if (!TargetData)
+            TargetData = GetComponent<DTarget>();
+
         mHasValidTarget = AcquireNearestEnemy();
     }
 
@@ -18,7 +21,7 @@ public class AAutoAcquiresNearestEnemy : MonoBehaviour
             mHasValidTarget = AcquireNearestEnemy();
         }
         else {
-            mHasValidTarget = (mTargetData) && (mTargetData.HasValidTarget);
+            mHasValidTarget = (TargetData) && (TargetData.HasValidTarget);
         }
     }
 
@@ -28,8 +31,8 @@ public class AAutoAcquiresNearestEnemy : MonoBehaviour
     /// <returns>True if a valid target was found; false otherwise.</returns>
     private bool AcquireNearestEnemy()
     {
-        if (mTargetData) {
-            if (mTargetData.HasValidTarget)
+        if (TargetData) {
+            if (TargetData.HasValidTarget)
                 // We already have a target.
                 return true;
 
@@ -55,7 +58,7 @@ public class AAutoAcquiresNearestEnemy : MonoBehaviour
                 }
 
                 // Since we grabbed the first enemy in the array by default, we are guaranteed to have a target here.
-                mTargetData.SetTarget(closestTarget);
+                TargetData.SetTarget(closestTarget);
                 return true;
             }
         }

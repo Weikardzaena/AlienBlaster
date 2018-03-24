@@ -2,22 +2,24 @@
 
 public class BDestroyOnTimer : MonoBehaviour
 {
-    private DSingleFireTimer mTimer;
-    private ADestroyable mDestroyable;
+    public DSingleFireTimer Timer;
+    public ADestroyable Destroyable;
+
     private void OnEnable()
     {
-        mDestroyable = GetComponent<ADestroyable>();
+        if (!Destroyable)
+            Destroyable = GetComponent<ADestroyable>();
 
-        mTimer = GetComponent<DSingleFireTimer>();
-        if (mTimer) {
-            mTimer.OnTimerFired.AddListener(Destroy);
-        }
+        if (!Timer)
+            Timer = GetComponent<DSingleFireTimer>();
+        if (Timer)
+            Timer.OnTimerFired.AddListener(Destroy);
     }
 
     private void Destroy()
     {
-        if (mDestroyable) {
-            mDestroyable.DestroySelf();
+        if (Destroyable) {
+            Destroyable.DestroySelf();
         }
     }
 }

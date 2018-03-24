@@ -5,25 +5,31 @@ public class BAOEDmgOnTimer : MonoBehaviour
 {
     public uint Damage;
 
-    private DTimer mTimer;
-    private DTargetList mTargets;
+    [Tooltip("When this damage source will fire.")]
+    public DTimer Timer;
+
+    [Tooltip("Target data for which targets to deal damage to.")]
+    public DTargetList Targets;
+
     private Dictionary<int, ADamageable> mDamageables;
 
     // Use this for initialization
     void OnEnable()
     {
+        mDamageables = new Dictionary<int, ADamageable>();
+
         // Timer listener:
-        mTimer = GetComponent<DTimer>();
-        if (mTimer) {
-            mTimer.OnTimerFired.AddListener(DealDamage);
-        }
+        if (!Timer)
+            Timer = GetComponent<DTimer>();
+        if (Timer)
+            Timer.OnTimerFired.AddListener(DealDamage);
 
         // Target listeners:
-        mDamageables = new Dictionary<int, ADamageable>();
-        mTargets = GetComponent<DTargetList>();
-        if (mTargets) {
-            mTargets.OnTargetAdded.AddListener(GetDamageable);
-            mTargets.OnTargetRemoved.AddListener(RemoveDamageable);
+        if (!Targets)
+            Targets = GetComponent<DTargetList>();
+        if (Targets) {
+            Targets.OnTargetAdded.AddListener(GetDamageable);
+            Targets.OnTargetRemoved.AddListener(RemoveDamageable);
         }
     }
 

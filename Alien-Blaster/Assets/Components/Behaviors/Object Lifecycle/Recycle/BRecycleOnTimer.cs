@@ -2,22 +2,24 @@
 
 public class BRecycleOnTimer : MonoBehaviour
 {
-    private DSingleFireTimer mTimer;
-    private ARecyclable mRecyclable;
+    public DSingleFireTimer Timer;
+    public ARecyclable RecyclableComp;
+
     private void OnEnable()
     {
-        mRecyclable = GetComponent<ARecyclable>();
+        if (!RecyclableComp)
+            RecyclableComp = GetComponent<ARecyclable>();
 
-        mTimer = GetComponent<DSingleFireTimer>();
-        if (mTimer) {
-            mTimer.OnTimerFired.AddListener(Recycle);
-        }
+        if (!Timer)
+            Timer = GetComponent<DSingleFireTimer>();
+        if (Timer)
+            Timer.OnTimerFired.AddListener(Recycle);
     }
 
     private void Recycle()
     {
-        if (mRecyclable) {
-            mRecyclable.Recycle();
+        if (RecyclableComp) {
+            RecyclableComp.Recycle();
         }
     }
 }

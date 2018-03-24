@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4a97ba45dcc954693bfabe638ecd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyableComp: {fileID: 569610016}
+  DestroyableComp: {fileID: 0}
   HealthComp: {fileID: 0}
 --- !u!114 &569610008
 MonoBehaviour:
@@ -165,18 +165,7 @@ MonoBehaviour:
   StartHealth: 20
   OnHealthChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 569610007}
-        m_MethodName: HandleHealthChange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: DHealth+HealthChange, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &569610009
@@ -190,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1760b3c250c86d045966da25ad020b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthComp: {fileID: 569610008}
+  HealthComp: {fileID: 0}
 --- !u!23 &569610010
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -431,7 +420,7 @@ Prefab:
         type: 2}
       propertyPath: StartWeapons.Array.data[0]
       value: 
-      objectReference: {fileID: 1048083859216784, guid: f485cbdf264d99b468db14ffb003c2d2,
+      objectReference: {fileID: 1812517444693366, guid: af9ebc54bcec6a7499823654c157e797,
         type: 2}
     - target: {fileID: 114049335364884182, guid: 614215e1fed9bfb42912924faa61f016,
         type: 2}

@@ -7,9 +7,13 @@ public class BKillOnZeroHealth : MonoBehaviour
 
     private void OnEnable()
     {
-        if (HealthComp) {
+        if (!HealthComp)
+            HealthComp = GetComponent<DHealth>();
+        if (HealthComp)
             HealthComp.OnHealthChange.AddListener(HandleHealthChange);
-        }
+
+        if (!DestroyableComp)
+            DestroyableComp = GetComponent<ADestroyable>();
     }
 
     private void HandleHealthChange(uint newHealth)

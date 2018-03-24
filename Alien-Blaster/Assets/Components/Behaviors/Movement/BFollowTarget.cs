@@ -11,22 +11,25 @@ public class BFollowTarget : MonoBehaviour
     [Tooltip("How fast the object will move toward the target.")]
     public float MoveSpeed = 1.0f;
 
-    private DTarget mTargetData;
+    [Tooltip("Which component will be the source of the tracking.")]
+    public DTarget TargetData;
+
     private void OnEnable()
     {
-        mTargetData = GetComponent<DTarget>();
+        if (TargetData == null)
+            TargetData = GetComponent<DTarget>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (mTargetData && mTargetData.HasValidTarget) {
+        if (TargetData && TargetData.HasValidTarget) {
             // Look at target:
             if (SmoothTurn) {
-                var targetRot = Quaternion.LookRotation(mTargetData.Target.transform.position - transform.position);
+                var targetRot = Quaternion.LookRotation(TargetData.Target.transform.position - transform.position);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, TurnSpeed * Time.deltaTime);
             } else {
-                transform.LookAt(mTargetData.Target.transform);
+                transform.LookAt(TargetData.Target.transform);
             }
         }
 
