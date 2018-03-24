@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 
-public class BAutoAcquireNearestEnemy : MonoBehaviour, IResettable
+public class AAutoAcquiresNearestEnemy : MonoBehaviour
 {
     public DTarget TargetData;
 
     private bool mHasValidTarget = false;
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
+        if (!TargetData)
+            TargetData = GetComponent<DTarget>();
+
         mHasValidTarget = AcquireNearestEnemy();
     }
 
@@ -18,7 +21,7 @@ public class BAutoAcquireNearestEnemy : MonoBehaviour, IResettable
             mHasValidTarget = AcquireNearestEnemy();
         }
         else {
-            mHasValidTarget = (TargetData) && (TargetData.HasValidTarget());
+            mHasValidTarget = (TargetData) && (TargetData.HasValidTarget);
         }
     }
 
@@ -29,7 +32,7 @@ public class BAutoAcquireNearestEnemy : MonoBehaviour, IResettable
     private bool AcquireNearestEnemy()
     {
         if (TargetData) {
-            if (TargetData.HasValidTarget())
+            if (TargetData.HasValidTarget)
                 // We already have a target.
                 return true;
 
@@ -37,10 +40,11 @@ public class BAutoAcquireNearestEnemy : MonoBehaviour, IResettable
             float closestDist = float.MaxValue;
             var enemies = FindObjectsOfType<BEnemyMovement>();
             var ourPos = transform.position;
+            GameObject closestTarget;
 
             if (enemies.Length > 0) {
                 // Always grab the first enemy in the array as default:
-                TargetData.Target = enemies[0].gameObject;
+                closestTarget = enemies[0].gameObject;
                 closestDist = (enemies[0].transform.position - ourPos).sqrMagnitude;
 
                 if (enemies.Length > 1) {
@@ -48,22 +52,18 @@ public class BAutoAcquireNearestEnemy : MonoBehaviour, IResettable
                         float otherDist = (enemies[i].transform.position - ourPos).sqrMagnitude;
                         if (otherDist < closestDist) {
                             closestDist = otherDist;
-                            TargetData.Target = enemies[i].gameObject;
+                            closestTarget = enemies[i].gameObject;
                         }
                     }
                 }
 
                 // Since we grabbed the first enemy in the array by default, we are guaranteed to have a target here.
+                TargetData.SetTarget(closestTarget);
                 return true;
             }
         }
 
         // No Target was stored.  Return false.
         return false;
-    }
-
-    public void Reset()
-    {
-        mHasValidTarget = false;
     }
 }

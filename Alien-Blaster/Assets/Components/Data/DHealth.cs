@@ -1,22 +1,18 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class DHealth : MonoBehaviour, IResettable
 {
-    [Serializable]
-    public class HealthChange : UnityEvent<UInt32>
+    [System.Serializable]
+    public class HealthChange : UnityEvent<uint>
     { }
 
-    public UInt32 StartHealth = 1;
+    public uint StartHealth = 1;
     public HealthChange OnHealthChange;
 
     // public accessors:
-    public UInt32 StartingHealth { get { return mStartHealth; } }
-    public UInt32 CurrentHealth { get { return mCurHealth; } }
-
-    private UInt32 mCurHealth;
-    private UInt32 mStartHealth;
+    public uint StartingHealth { get; private set; }
+    public uint CurrentHealth { get; private set; }
 
     // Use this for initialization
     void OnEnable()
@@ -24,33 +20,31 @@ public class DHealth : MonoBehaviour, IResettable
         Reset();
     }
 
-    public UInt32 SubtractHealth(UInt32 value)
+    public uint SubtractHealth(uint value)
     {
-        Debug.Log(name + " SubtractHealth()");
         // Check for overflow before subtracting:
-        mCurHealth = value > mCurHealth ? 0 : mCurHealth - value;
+        CurrentHealth = value > CurrentHealth ? 0 : CurrentHealth - value;
 
         // Invoke listeners:
-        OnHealthChange.Invoke(mCurHealth);
+        OnHealthChange.Invoke(CurrentHealth );
 
-        return mCurHealth;
+        return CurrentHealth ;
     }
 
-    public UInt32 AddHealth(UInt32 value)
+    public uint AddHealth(uint value)
     {
-        Debug.Log(name + " AddHealth()");
         // Check for overflow before adding:
-        mCurHealth = UInt32.MaxValue - mCurHealth < value ? UInt32.MaxValue : mCurHealth + value;
+        CurrentHealth = uint .MaxValue - CurrentHealth < value ? uint .MaxValue : CurrentHealth + value;
 
         // Invoke listeners:
-        OnHealthChange.Invoke(mCurHealth);
+        OnHealthChange.Invoke(CurrentHealth );
 
-        return mCurHealth;
+        return CurrentHealth ;
     }
 
     public void Reset()
     {
-        mCurHealth = StartHealth;
-        mStartHealth = StartHealth;
+        CurrentHealth = StartHealth;
+        StartingHealth = StartHealth;
     }
 }

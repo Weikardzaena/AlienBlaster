@@ -26,9 +26,9 @@ GameObject:
   - component: {fileID: 114401993302948878}
   - component: {fileID: 114559464927481886}
   - component: {fileID: 114657915717508994}
-  - component: {fileID: 114736818216612438}
   - component: {fileID: 114734810772668826}
   - component: {fileID: 114344753352469172}
+  - component: {fileID: 114463970027672370}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -116,7 +116,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: BSingleFireTimer+TimerExpired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: DSingleFireTimer+TimerExpired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114401993302948878
 MonoBehaviour:
@@ -133,6 +133,18 @@ MonoBehaviour:
   TurnSpeed: 1
   MoveSpeed: 5
   TargetData: {fileID: 114734810772668826}
+--- !u!114 &114463970027672370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261549873999862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: defaa5c70d2e1a34e813451860958e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetData: {fileID: 114734810772668826}
 --- !u!114 &114559464927481886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,10 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a88d5ffc3600cf4994c49f892a63f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResettableComponents:
-  - {fileID: 114736818216612438}
-  - {fileID: 114734810772668826}
-  - {fileID: 114344753352469172}
 --- !u!114 &114657915717508994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,18 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
---- !u!114 &114736818216612438
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1261549873999862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: defaa5c70d2e1a34e813451860958e39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetData: {fileID: 114734810772668826}
 --- !u!114 &114996635441726772
 MonoBehaviour:
   m_ObjectHideFlags: 1
