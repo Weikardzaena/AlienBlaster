@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 569610017}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -420,7 +420,7 @@ Prefab:
         type: 2}
       propertyPath: StartWeapons.Array.data[0]
       value: 
-      objectReference: {fileID: 1812517444693366, guid: af9ebc54bcec6a7499823654c157e797,
+      objectReference: {fileID: 1281991529198556, guid: 4122769decfd6ac4d993859bdc670dab,
         type: 2}
     - target: {fileID: 114049335364884182, guid: 614215e1fed9bfb42912924faa61f016,
         type: 2}

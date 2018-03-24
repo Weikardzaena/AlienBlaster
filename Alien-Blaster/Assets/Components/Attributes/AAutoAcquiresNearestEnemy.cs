@@ -38,7 +38,7 @@ public class AAutoAcquiresNearestEnemy : MonoBehaviour
 
             // local variables:
             float closestDist = float.MaxValue;
-            var enemies = FindObjectsOfType<BEnemyMovement>();
+            var enemies = GameObject.FindGameObjectsWithTag("Enemy");
             var ourPos = transform.position;
             GameObject closestTarget;
 
