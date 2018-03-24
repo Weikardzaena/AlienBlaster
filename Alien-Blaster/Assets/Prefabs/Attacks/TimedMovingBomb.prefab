@@ -20,12 +20,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4952283770706026}
   - component: {fileID: 33824230067022176}
-  - component: {fileID: 135756099796146488}
   - component: {fileID: 23145688256071878}
   - component: {fileID: 114910525964609798}
   - component: {fileID: 114969917735541390}
   - component: {fileID: 114230234054724736}
   - component: {fileID: 114111976008395874}
+  - component: {fileID: 114698892250114010}
+  - component: {fileID: 114241368863967142}
+  - component: {fileID: 114307505662717128}
+  - component: {fileID: 135536390554233190}
   m_Layer: 0
   m_Name: TimedMovingBomb
   m_TagString: Untagged
@@ -40,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1102550316693184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.475, y: 0, z: 1.319}
+  m_LocalPosition: {x: 0.68, y: 0, z: 1.319}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,9 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a88d5ffc3600cf4994c49f892a63f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResettableComponents:
-  - {fileID: 114230234054724736}
-  - {fileID: 114910525964609798}
 --- !u!114 &114230234054724736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,8 +112,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10543b7c928808a4780b512052cedc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionArea: {fileID: 135756099796146488}
-  Damage: 3
+  Damage: 10
+--- !u!114 &114241368863967142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102550316693184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6eb0b4d54e3e14eb52b2b33420fd07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114307505662717128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102550316693184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a0565ea9c7e814687cf85ab88ae3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114698892250114010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102550316693184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4484b354ea0bae147803964096de6085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingTargets: []
+  OnTargetAdded:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: DTargetList+TargetAdded, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnTargetRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: DTargetList+TargetRemoved, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114910525964609798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,32 +169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Duration: 1
-  OnTimerExpired:
+  OnTimerFired:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114230234054724736}
-        m_MethodName: Detonate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 114111976008395874}
-        m_MethodName: Recycle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: BSingleFireTimer+TimerExpired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      m_Calls: []
+    m_TypeName: DTimer+TimerFired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114969917735541390
 MonoBehaviour:
@@ -166,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   RelativeDirection: {x: 0, y: 0, z: 1}
---- !u!135 &135756099796146488
+--- !u!135 &135536390554233190
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

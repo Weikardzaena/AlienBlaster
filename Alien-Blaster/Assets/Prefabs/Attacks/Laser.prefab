@@ -137,21 +137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Duration: 0.5
-  OnTimerExpired:
+  OnTimerFired:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114888524213000554}
-        m_MethodName: Recycle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: BSingleFireTimer+TimerExpired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      m_Calls: []
+    m_TypeName: DTimer+TimerFired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114888524213000554
 MonoBehaviour:
@@ -164,8 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a88d5ffc3600cf4994c49f892a63f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResettableComponents:
-  - {fileID: 114621076663938570}
 --- !u!136 &136958388450186046
 CapsuleCollider:
   m_ObjectHideFlags: 1

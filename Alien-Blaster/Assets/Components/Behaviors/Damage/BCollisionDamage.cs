@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BCollisionDamage : MonoBehaviour
 {
-    public UInt32 DamageVal = 1;
+    public uint DamageVal = 1;
 
     public void OnTriggerEnter(Collider other)
     {

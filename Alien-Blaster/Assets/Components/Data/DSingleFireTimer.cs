@@ -1,43 +1,24 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
-
-public class DSingleFireTimer : MonoBehaviour, IResettable
+﻿public class DSingleFireTimer : DTimer
 {
-    [Serializable]
-    public class TimerExpired : UnityEvent
-    { }
-
-    public float Duration = 1.0f;
-    public TimerExpired OnTimerExpired;
-
     public bool IsFinished { get; private set; }
 
-    private float mTimeRemaining;
-
-    // Use this for initialization
-    void OnEnable()
-    {
-        Reset();
-    }
-
     // Update is called once per frame
-    void Update()
+    protected override void UpdateTime(float deltaTime)
     {
         if (!IsFinished) {
-            mTimeRemaining -= Time.deltaTime;
+            mTimeRemaining -= deltaTime;
 
             if (mTimeRemaining < 0.0f) {
                 // Make sure to set IsFinished first because Reset is called via Recyclable later on.
                 IsFinished = true;
-                OnTimerExpired.Invoke();
+                OnTimerFired.Invoke();
             }
         }
     }
 
-    public void Reset()
+    public override void Reset()
     {
-        mTimeRemaining = Duration;
+        base.Reset();
         IsFinished = false;
     }
 }

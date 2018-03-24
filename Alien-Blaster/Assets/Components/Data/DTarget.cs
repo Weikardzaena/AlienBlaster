@@ -1,16 +1,28 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Events;
 
 public class DTarget : MonoBehaviour, IResettable
 {
-    public GameObject Target;
+    [Serializable]
+    public class TargetChanged : UnityEvent<GameObject>
+    { }
 
-    public bool HasValidTarget()
+    public GameObject StartTarget;
+    public TargetChanged OnTargetChanged;
+
+    public GameObject Target { get; private set; }
+
+    public bool HasValidTarget { get { return (Target != null) && (Target.activeInHierarchy); } }
+
+    public void SetTarget(GameObject newTarget)
     {
-        return (Target != null) && (Target.activeInHierarchy);
+        Target = newTarget;
+        OnTargetChanged.Invoke(Target);
     }
 
     public void Reset()
     {
-        Target = null;
+        Target = StartTarget;
     }
 }

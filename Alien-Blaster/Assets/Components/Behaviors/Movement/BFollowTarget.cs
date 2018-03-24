@@ -11,19 +11,22 @@ public class BFollowTarget : MonoBehaviour
     [Tooltip("How fast the object will move toward the target.")]
     public float MoveSpeed = 1.0f;
 
-    [Tooltip("The game object to look at.")]
-    public DTarget TargetData;
+    private DTarget mTargetData;
+    private void OnEnable()
+    {
+        mTargetData = GetComponent<DTarget>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (TargetData && TargetData.Target) {
+        if (mTargetData && mTargetData.HasValidTarget) {
             // Look at target:
             if (SmoothTurn) {
-                var targetRot = Quaternion.LookRotation(TargetData.Target.transform.position - transform.position);
+                var targetRot = Quaternion.LookRotation(mTargetData.Target.transform.position - transform.position);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, TurnSpeed * Time.deltaTime);
             } else {
-                transform.LookAt(TargetData.Target.transform);
+                transform.LookAt(mTargetData.Target.transform);
             }
         }
 
