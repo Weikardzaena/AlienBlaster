@@ -6,12 +6,17 @@ public class BInputHandler : MonoBehaviour {
     public float MaxSpeed = 10.0f;
     public float AutoFirePeriod = 0.75f;
     public GameObject[] StartWeapons;
+    public Rigidbody ShipRigidBody;
 
     private float mNextFireTime = 0.0f;
     private List<AFirable> mWeapons = new List<AFirable>();
 
     void Start()
     {
+        if (!ShipRigidBody) {
+            ShipRigidBody = GetComponent<Rigidbody>();
+        }
+
         foreach (var weapon in StartWeapons) {
             var instance = Instantiate(weapon, transform);
             var firable = instance.GetComponent<AFirable>();
@@ -19,6 +24,15 @@ public class BInputHandler : MonoBehaviour {
                 mWeapons.Add(firable);
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        // Move:
+        Vector3 forwardDelta = Input.GetAxis("Vertical") * Time.deltaTime * MaxSpeed * Vector3.forward;
+        Vector3 rightDelta = Input.GetAxis("Horizontal") * Time.deltaTime * MaxSpeed * Vector3.right;
+
+        ShipRigidBody.MovePosition(transform.position + forwardDelta + rightDelta);
     }
 
     // Update is called once per frame
@@ -44,12 +58,6 @@ public class BInputHandler : MonoBehaviour {
         if (Input.GetButtonDown("Super")) {
             FireSuper();
         }
-
-        // Move:
-        Vector3 forwardDelta = Input.GetAxis("Vertical") * Time.deltaTime * MaxSpeed * Vector3.forward;
-        Vector3 rightDelta = Input.GetAxis("Horizontal") * Time.deltaTime * MaxSpeed * Vector3.right;
-
-        transform.Translate(forwardDelta + rightDelta);
     }
 
     public void AddWeapon(AFirable weapon)
