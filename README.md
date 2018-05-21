@@ -5,10 +5,9 @@ It's a working title! I swear I'll come up with something better later.
 This is a top-down space shooter written from scratch in Unity3D. Currently this 
 is in its infant stages with mainly just the core architecture done. 
 
-(C) 2018 George Nikolai Kotula. 
+(C) 2018 George Nikolai Kotula.  All rights reserved.
 
-This project is NOT released under a copy-left or MIT-style license. See 
-LICENSE.md. 
+This project is NOT released under a copy-left or MIT-style license.
 
 ## Key Features 
 
